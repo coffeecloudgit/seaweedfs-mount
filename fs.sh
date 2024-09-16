@@ -29,10 +29,16 @@ WantedBy=multi-user.target
 EOF
 
 }
+#卸载 挂载服务
+uninstall(){
+  umount /weed-fs
+  sudo systemctl stop weed-fs.service
+  sudo systemctl disable weed-fs.service
+}
 
 #使用说明，用来提示输入参数
 usage() {
- echo "Usage: bash fs.sh [install|sync]"
+ echo "Usage: bash fs.sh [install|uninstall|sync]"
  exit 1
 }
 
@@ -40,6 +46,9 @@ usage() {
 case "$1" in
  "install")
  install
+ ;;
+ "uninstall")
+ uninstall
  ;;
  *)
  usage

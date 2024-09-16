@@ -9,6 +9,7 @@ wget https://github.com/coffeecloudgit/seaweedfs-mount/releases/download/v3.73/w
 tar -zxvf weed-fs.tar.gz
 vim fs.conf
 ./fs.sh install
+mkdir /weed-fs
 systemctl start weed-fs.service
 df -h
 ls /weed-fs
