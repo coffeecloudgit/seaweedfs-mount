@@ -33,14 +33,14 @@ EOF
 }
 #卸载 挂载服务
 uninstall(){
-  umount /weed-fs
+  umount /${current_folder}
   sudo systemctl stop ${current_folder}.service
   sudo systemctl disable ${current_folder}.service
 }
 
 #使用说明，用来提示输入参数
 usage() {
- echo "Usage: bash fs.sh [install|uninstall|sync]"
+ echo "Usage: bash fs-dir.sh [install|uninstall|sync]"
  exit 1
 }
 
